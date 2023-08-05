@@ -71,6 +71,17 @@ public class AirportController {
     @GetMapping("/get-number-of-people-on-airport-on/{date}")
     public int getNumberOfPeopleOn(@PathVariable("date") Date date,@RequestParam("airportName")String airportName){
 
+//        int count = 0;
+//        for (List<Integer> passengerIds : bookedTickets.values()) {
+//            for (Integer passengerId : passengerIds) {
+//                Passenger passenger = passengers.get(passengerId);
+//                if (passenger != null && passenger.getEmail().equals(airportName)) {
+//                    count++;
+//                }
+//            }
+//        }
+//        return count;
+
         int count = 0;
         for (List<Integer> passengerIds : bookedTickets.values()) {
             for (Integer passengerId : passengerIds) {
@@ -188,6 +199,9 @@ public class AirportController {
 
     @GetMapping("/get-aiportName-from-flight-takeoff/{flightId}")
     public String getAirportNameFromFlightId(@PathVariable("flightId")Integer flightId){
+
+//        Flight flight = flights.get(flightId);
+//        return flight != null ? flight.getFromCity().name() : null;
 
         Flight flight = flights.get(flightId);
         return flight != null ? flight.getFromCity().name() : null;
